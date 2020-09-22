@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica Modelo 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <main>
+        <h1>Calculadora Básica Modelo 1</h1>
+        <form action="#">
+            <div class="elemento-formulario">
+                <label for="numero1">Número 1:</label>
+                <input type="number" placeholder="Número 1" id="numero1">
+            </div>
+            <div class="elemento-formulario">
+                <label for="numero2">Número 2:</label>
+                <input type="number" placeholder="Número 2" id="numero2">
+            </div>
+            <div class="elemento-formulario">
+                <label for="operación">Tipo de Operación</label>
+                <select name="operacion" id="operacion">
+                    <option value="suma">Suma</option>
+                    <option value="resta">Resta</option>
+                    <option value="multiplicacion">Multiplicación</option>
+                    <option value="division">División</option>
+                </select>
+            </div>
+            <div class="elemento-formulario">
+                <input type="button" value="Calcular" class="boton" onclick="calcular()">
+            </div>
+            <label for="#" id="resultado"></label>
+        </form>
+    </main>
+    <footer>
+        <p>
+            Jalil Manuel López Ceniceros | 4° "B" TI
+        </p>
+    </footer>
+</body>
+<script src="main.js"></script>
+</html>
