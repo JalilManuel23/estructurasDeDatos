@@ -1,6 +1,6 @@
 function calcular(){
-    let numero2 = parseFloat(document.querySelector("#numero2").value);
     let numero1 = parseFloat(document.querySelector("#numero1").value);
+    let numero2 = parseFloat(document.querySelector("#numero2").value);
     let operacion = document.querySelector("#operacion").value;
     let p_resultado = document.querySelector("#resultado");
     let resultado, operador;
@@ -27,5 +27,5 @@ function calcular(){
         break;
     }
     
-    p_resultado.textContent = `${numero1} ${operador} ${numero2} = ${resultado}`;
+    p_resultado.textContent = `${numero1} ${operador} ${numero2} = ${resultado.toFixed(2)}`;
 }

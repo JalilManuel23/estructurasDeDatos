@@ -1,8 +1,6 @@
 let matriz1 = [[,],[,]];
 let matriz2 = [[,],[,]];
 
-let conMatriz = 1;
-
 for(let i = 0; i < 2; i++){
     for(let j = 0; j < 2; j++){
         matriz1[i][j] = parseInt(prompt(`Ingrese el valor en la posición: (${i},${j}) de la matriz 1`));
