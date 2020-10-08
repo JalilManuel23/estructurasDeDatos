@@ -74,8 +74,7 @@ do{
             }
         break;
     }
-    alert(datosAlumno);
-    alert(calificaciones);
+
     respuestaSalir = prompt("¿Desea realizar alguna otra acción? (S/N)").toLowerCase(); //Pregunta al usuario si desea continuar
     salir = (respuestaSalir !== "s") ? true : false; //Asignación de valor a la variable salir con operador ternario (si es diferente a 's' toma el valor de true)
 }while(salir === false); //si la variable salir es igual a false se sigue ejecutando
