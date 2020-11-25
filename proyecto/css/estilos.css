@@ -1,0 +1,253 @@
+/* VARIABLES */
+:root {
+    --negro:#121212;
+    --gris-oscuro: #181818;
+    --gris-claro: #282828;
+    --color-subtitulos: #8f8f8f;
+    --color-gris-hover: rgb(44, 41, 41);
+    --azul: rgb(40, 122, 216);
+    --azul-hover: rgb(60, 129, 207);
+}
+/* ESTILOS GENERALES */
+body {
+    overflow: hidden; 
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+    /* max-width: 80%; */
+    padding: 10px;
+    margin: auto;
+}
+
+.titulo {
+    color: #e3e3e3;
+}
+
+.boton {
+    padding: 15px;
+    background-color: var(--azul);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 80px;
+    font-size: 2vmin;
+}
+
+.boton:hover {
+    transform: scale(1.05); 
+    background-color: var(--azul-hover);
+}
+
+.icon-list-add{
+    padding: 8px;
+    border: 3px solid var(--gris-claro);
+    border-radius: 50%;
+}
+
+
+.icon-list-add:hover{
+    transform: scale(1.01);
+    background-color: var(--gris-oscuro);
+}
+/* FIN ESTILOS GENERALES */
+
+/* ESTILOS DE PRIMERA PÁGINA */
+header {
+    height: 100vh;
+}
+
+.contenido {
+    height: 88vh;
+    display: flex;
+    background: var(--gris-oscuro)
+}
+
+.reproductor {
+    /* height: 100%; */
+    width: 100%;
+    background: var(--gris-claro);
+    display: flex;
+}
+
+.menu {
+    width: 13vw;
+    height: 100%;
+    background: var(--negro);
+}
+
+.playlists {
+    width: 32vw;
+    height: 100%;
+}
+
+.canciones {
+    width: 55vw;
+    height: 100%;
+}
+
+.contenido-menu {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-subtitulos);
+}
+
+.opcion {
+    height: 5px;
+    font-size: 2vmin;
+    font-weight: 600;
+}
+
+.opcion:hover {
+    cursor: pointer;
+}
+
+.opcion::before {
+    margin-right: 13px;
+}
+
+.contenido-menu img {
+    width: 60px;
+    height: 60px;
+}
+
+.cancion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2vmin;
+    border-bottom: 1px solid rgb(44, 41, 41);
+    padding-top: 10px;
+    color: var(--color-subtitulos);
+}
+
+.cancion:hover {
+    background-color:  var(--color-gris-hover);
+    cursor: pointer;
+}
+
+.titulo-cancion {
+    color: white;
+    font-weight: 500;
+}
+
+.subtitulo-cancion {
+    color: var(--color-subtitulos);
+}
+
+.info-cancion {
+    line-height: 5px;
+}
+
+.icono-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.icono-info p {
+    margin-right: 15px;
+}
+
+.duracion {
+    margin-right: 15px;
+}
+
+.contenedor-playlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+}
+
+.playlist {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 15px;
+    font-size: 2.5vmin;
+}
+
+.playlist:hover {
+    background-color: var(--color-gris-hover);
+    cursor: pointer;
+}
+
+.playlist img {
+    width: 80px;
+}
+
+.imagen-nombre-playlist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icono-ver::before {
+    margin-left: 15px;
+}
+
+.imagen-nombre-playlist p {
+    margin-left: 15px;
+}
+
+.contenedor-reproductor {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+}
+
+.reproductor-img-titulo {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    /* background-color: var(--color-subtitulos); */
+}
+
+.reproductor-img-titulo img {
+    width: 60px;
+    height: 60px;
+}
+
+.reproductor-img-titulo .info-cancion p {
+    margin-left: 10px;
+    font-size: 2vmin;
+}
+
+.controles {
+    color: var(--color-subtitulos);
+    width: 33%;
+    display: flex;
+    line-height: 1px;
+    flex-direction: column;
+}
+
+.botones {
+    display: flex;
+    font-size: 2.1vmin;
+    justify-content: space-around;
+}
+
+.barra {
+    display: flex;
+    font-size: 2vmin;
+    justify-content: space-around;
+}
+
+.opciones {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2.2vmin;
+    width: 33%;
+    color: var(--color-subtitulos);
+}
+
+.opciones p {
+    margin-left: 25px;
+}
+/*  FIN DE ESTILOS DE PRIMERA PÁGINA */
