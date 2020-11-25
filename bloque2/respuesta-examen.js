@@ -62,6 +62,11 @@ console.log(nodo);
 //buscar un valor en la lista
 
 // let numeroBuscar = parseInt(prompt("Ingresa el número a buscar"));
-let numeroBuscar = -1;
+let numeroBuscar = 5;
 numVeces = nodo.buscar(numeroBuscar);
-console.log(numVeces);
+
+if(numVeces >= 1) {
+    console.log(`El número de veces que aparece el número ${numeroBuscar} es ${numVeces}`);
+} else {
+    console.log(`El número: ${numeroBuscar} no aparece en la lista`);
+}
