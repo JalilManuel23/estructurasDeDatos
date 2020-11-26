@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -36,12 +37,12 @@
                     <h2 class="titulo">Playlists</h2>
 
                     <!-- Esto se muestra si no hay listas -->
-                    <p>Opss, no haz creado ninguna Playlist</p>
-                    <a href="#" class="boton">CREAR PLAYLIST</a>
+                    <!-- <p>Opss, no haz creado ninguna Playlist</p> -->
+                    
+                    <a href="#agregar-playlist" class="boton">CREAR PLAYLIST</a>
 
                     <!-- Esto se muestra si hay listas agregadas -->
-                    <!-- <a href="#" class="boton">CREAR PLAYLIST</a>
-                    <div class="playlist">
+                    <!-- <div class="playlist">
                         <div class="imagen-nombre-playlist">
                             <img src="img/playlist-icono.png" alt="Imagen PLaylist">
                             <p>Nombre de la Playlist</p>
@@ -54,7 +55,7 @@
                             <p>Nombre de la Playlist</p>
                         </div>
                         <p class="icono-ver icon-play"></p>
-                    </div> -->
+                    </div>  -->
         
                 </div>
             </div>
@@ -178,7 +179,7 @@
                     </div>
                     <div class="barra">
                         <p class="tiempo-actual">0:33</p>
-                        <p>------------------------------------------------------------------------------------------</p>
+                        <input type="range">
                         <p class="duracion">3:37</p>
                     </div>
                 </div>
@@ -186,14 +187,90 @@
                     <p class="icon-microphone"></p>
                     <p class="icon-bars"></p>
                     <p class="icon-volume-down"></p>
-                    <p class="icon-"></p>
-                    <p class="icon-"></p>
+                    <input id="volumen" type="range">
                     <p class="icon-expand"></p>
                 </div>
             </div>
         </div>
     </header>
     <!-- FIN PRIMERA PÁGINA -->
+
+    <!-- INICIO DE PÁGINA PARA AGREGAR PLAYLIST -->
+    <div class="agregar-playlist" id="agregar-playlist">
+        <div class="contenido">
+            <div class="menu">
+                <div class="contenido-menu contenedor">
+                    <img class="opcion" src="img/logo.png" alt="Logo">
+                    <p class="opcion icon-home">Inicio</p>
+                    <p class="opcion icon-magnifying-glass">Explorar</p>
+                    <p class="opcion icon-radio-tower">Radio</p>
+                    <p class="opcion"></p>
+                    <p class="opcion">Para ti</p>
+                    <p class="opcion">Escuchad. recient.</p>
+                    <p class="opcion">Tus canciones</p>
+                    <p class="opcion">Álbumes</p>
+                    <p class="opcion">Artistas</p>
+                    <p class="opcion">Podcasts</p>
+                </div>
+            </div>
+            <div class="formulario-agregar">
+                <div class="encabezado-agregar">
+                    <p class="icon-plus-circled"></p>
+                    <h2>Agregar PlayList</h2>
+                </div>
+                <div class="formulario">
+                    <img src="img/playlist-icono.png" alt="">
+                    <form action="#">
+                        <div class="elemento-form">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" placeholder="Nombre de la playlist">
+                        </div>
+                        <div class="elemento-form">
+                            <label for="nombre">Descripcón</label>
+                            <textarea placeholder="Agrega una descripción a tu playlist"></textarea>
+                        </div>
+                        <div class="elemento-boton">
+                            <a href="#" class="boton">CREAR</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="reproductor">
+            <div class="contenedor-reproductor contenedor">
+                <div class="reproductor-img-titulo">
+                    <img src="img/cancion.png" alt="Imagen Canción">
+                    <div class="info-cancion">
+                        <p class="titulo-cancion">Canción 1</p>
+                        <p class="subtitulo-cancion">Nombre del artista</p>
+                    </div>
+                </div>
+                <div class="controles">
+                    <div class="botones">
+                        <p class="icon-random"></p>
+                        <p class="icon-to-start"></p>
+                        <p class="icon-pause"></p>
+                        <p class="icon-to-end"></p>
+                        <p class="icon-ban"></p>
+                    </div>
+                    <div class="barra">
+                        <p class="tiempo-actual">0:33</p>
+                        <input type="range">
+                        <p class="duracion">3:37</p>
+                    </div>
+                </div>
+                <div class="opciones">
+                    <p class="icon-microphone"></p>
+                    <p class="icon-bars"></p>
+                    <p class="icon-volume-down"></p>
+                    <input id="volumen" type="range">
+                    <p class="icon-expand"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN DE PÁGINA PARA AGREGAR PLAYLIST -->
 </body>
 
 </html>
