@@ -169,6 +169,7 @@ header {
 
 .playlist {
     display: flex;
+    width: 80%;
     align-items: center;
     justify-content: space-between;
     margin-top: 40px;

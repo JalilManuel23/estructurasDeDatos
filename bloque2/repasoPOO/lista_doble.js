@@ -139,8 +139,6 @@ class ListaDoble {
         }
         this.size--;
     }
-
-
 }
 
 //Prueba de funcionamiento

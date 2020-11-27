@@ -13,7 +13,7 @@
     <script src="js/main.js"></script>
 </head>
 
-<body>
+<body onload="mostrarLetrero()">
     <!-- INICIO PRIMERA PÁGINA -->
     <header>
         <div class="contenido">
@@ -33,30 +33,11 @@
                 </div>
             </div>
             <div class="playlists">
-                <div class="contenedor-playlist contenedor">
-                    <h2 class="titulo">Playlists</h2>
-
-                    <!-- Esto se muestra si no hay listas -->
-                    <!-- <p>Opss, no haz creado ninguna Playlist</p> -->
-                    
-                    <a href="#agregar-playlist" class="boton">CREAR PLAYLIST</a>
-
-                    <!-- Esto se muestra si hay listas agregadas -->
-                    <div class="playlist">
-                        <div class="imagen-nombre-playlist">
-                            <img src="img/playlist-icono.png" alt="Imagen PLaylist">
-                            <p>Nombre de la Playlist</p>
-                        </div>
-                        <p class="icono-ver icon-play"></p>
-                    </div>
-                    <div class="playlist">
-                        <div class="imagen-nombre-playlist">
-                            <img src="img/playlist-icono.png" alt="Imagen PLaylist">
-                            <p>Nombre de la Playlist</p>
-                        </div>
-                        <p class="icono-ver icon-play"></p>
-                    </div> 
-        
+                <div id="contenedor-playlist" class="contenedor-playlist contenedor">
+                    <h2 class="titulo">Playlists</h2>  
+                    <a href="#agregar-playlist" class="boton">CREAR PLAYLIST</a>        
+                    <!-- mostrarLetrero()  -->
+                    <!-- mostrarPlaylist(nombreLista)  -->
                 </div>
             </div>
             <div class="canciones">
@@ -223,14 +204,14 @@
                     <form action="#">
                         <div class="elemento-form">
                             <label for="nombre">Nombre</label>
-                            <input type="text" placeholder="Nombre de la playlist">
+                            <input type="text" id="nombre" placeholder="Nombre de la playlist">
                         </div>
                         <div class="elemento-form">
-                            <label for="nombre">Descripción</label>
-                            <textarea placeholder="Agrega una descripción a tu playlist"></textarea>
+                            <label for="descripcion">Descripción</label>
+                            <textarea id="descripcion" placeholder="Agrega una descripción a tu playlist"></textarea>
                         </div>
                         <div class="elemento-boton">
-                            <a href="#" class="boton">CREAR</a>
+                            <a href="#" class="boton" onclick="crearPlaylist()">CREAR</a>
                         </div>
                     </form>
                 </div>
