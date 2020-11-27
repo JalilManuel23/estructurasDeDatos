@@ -52,7 +52,6 @@ class Pilas{
     }
 
     limpiarPila(){
-
         let tam = this.pilaSize();
         for (let i = 1; i<=tam;i++){
             this.pop();
@@ -60,7 +59,14 @@ class Pilas{
     }
 
     imprimirPila(){
-        
+        let valores = "";
+        this.temp = this.tope;
+
+        while(this.temp != null){
+            valores += this.temp.dato + " ";
+            this.temp = this.temp.enlace;
+        }
+        return valores;
     }
 
     buscarPila(valor){
@@ -133,12 +139,9 @@ console.log(pila);
 
 console.log(pila);
 
-let buscar = pila.buscarPila();
+let buscar = pila.buscarPila(23);
 if(buscar>0){
     console.log('Encontro el elemento');
 }else{
     console.log('No encontro el elemento');
 }
-
-
- 

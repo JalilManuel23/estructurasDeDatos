@@ -1,6 +1,4 @@
-
 class Filas{
-
     constructor(){
         this.fila = [];
     }
