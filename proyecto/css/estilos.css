@@ -116,6 +116,10 @@ header {
     height: 60px;
 }
 
+.canciones {
+    overflow-y: scroll;
+}
+
 .cancion {
     display: flex;
     justify-content: space-between;

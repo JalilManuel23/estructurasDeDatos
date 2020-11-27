@@ -146,6 +146,12 @@ let listas = [];
 let nombres = [];
 let descripciones = [];
 
+// Función que se ejecuta al cargar
+function main() {
+    mostrarCanciones();
+    mostrarLetrero();
+}
+
 // Función para crear una lista
 function crearPlaylist() {
     const listaNueva = new ListaDoble();
@@ -203,7 +209,7 @@ function mostrarPlaylist(nombreLista) {
     
     divPlaylist.className = "playlist";
     divPlaylist.setAttribute('href', "#ver-playlist");
-    divPlaylist.setAttribute('onclick', 'mostrarPlaylistCompleta()');
+    divPlaylist.setAttribute('onclick', "mostrarPlaylistCompleta(" + contador + ")");
     divImagen.className = "imagen-nombre-playlist";
     imagen.setAttribute('src', 'img/playlist-icono.png');
     icono.className = "icono-ver";
@@ -222,6 +228,81 @@ function mostrarPlaylist(nombreLista) {
 }
 
 // Muestra la playlist en la seccion 2
-function mostrarPlaylistCompleta() {
-    alert(indice);
+/* <h2 id="nombre">Nombre Playlist</h2>
+<p id="descripcion" class="descripcion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem aut dolorum facere, ipsum quod facilis. Nobis ut dolores fugiat enim nam recusandae esse, aut officia eveniet incidunt eius ad dolore.</p> */
+function mostrarPlaylistCompleta(indice) {
+    const divNombrePlaylist = document.querySelector("#nombre-playlist");
+
+    const nombre = document.createElement("h2");
+    const descripcion = document.createElement("p");
+
+    descripcion.className = "descripcion";
+    nombre.id = "nombre-playlistCompleta";
+    descripcion.id = "descripcion-playlistCompleta";
+
+    nombre.textContent = nombres[indice];
+    descripcion.textContent = descripciones[indice];
+
+    divNombrePlaylist.appendChild(nombre);
+    divNombrePlaylist.appendChild(descripcion);
+}
+
+// Limpia la parte de ver playlist
+function limpiarVerPlaylist() {
+    const divNombrePlaylist = document.querySelector("#nombre-playlist");
+    const nombre = document.querySelector("#nombre-playlistCompleta");
+    const descripcion = document.querySelector("#descripcion-playlistCompleta");
+
+    divNombrePlaylist.removeChild(nombre);
+    divNombrePlaylist.removeChild(descripcion);
+}
+
+// Arreglo para las canciones y los artistass/almbumes
+let canciones =     ["HOLIDAY"            , "THE SCOTTS"               , "Toosie Slide"        , "VIBEZ"        , "Baguettes (feat. Gunna)" , "Poco"                        , "Barquillero"             , "Los Niños"                  , "El pariente"                , "El Buho"];
+let artistasAlbum = ["Lil Nas X - HOLIDAY", "Travis Scott - THE SCOTTS", "Drake - Toosie Slide", "DaBaby - KIRK", "Smokepurpp - Lost Planet", "Reik, Christian Nodal - Poco", "Calibre 50 - Barquillero", "Grupo Codiciado - La verdad", "Grupo Recluta - El Pariente", "El Buho - Luis R Conriquez - EL Buho"];
+
+// Función para mostrar las canciónes en el header
+/* 
+<div class="cancion">
+    <div class="icono-info">
+        <p class="subtitulo-cancion icon-list-add"></p>
+        <div class="info-cancion">
+            <p class="titulo-cancion">Canción 1</p>
+            <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
+        </div>
+    </div>
+    <p class="duracion">3:46</p>
+</div> */
+function mostrarCanciones() {
+    for(let i = 0; i < canciones.length; i++) {
+        const divContenedorCanciones = document.querySelector("#contenedor-canciones");
+        const divCancion = document.createElement("div");
+        const divIconoInfo = document.createElement("div");
+        const pIcono = document.createElement("p");
+        const divInfo = document.createElement("div");
+        const pTitulo = document.createElement("p");
+        const pSubtitulo = document.createElement("p");
+        const pDuracion = document.createElement("p");
+        
+        divCancion.className = "cancion";
+        divIconoInfo.className = "icono-info";
+        pIcono.className = "subtitulo-cancion";
+        pIcono.className = "icon-list-add";
+        divInfo.className = "info-cancion";
+        pTitulo.className = "titulo-cancion";
+        pSubtitulo.className = "subtitulo-cancion";
+        pDuracion.className = "duracion";
+
+        pTitulo.textContent = canciones[i];
+        pSubtitulo.textContent = artistasAlbum[i];
+        pDuracion.textContent = "3:46";
+
+        divContenedorCanciones.appendChild(divCancion);
+        divCancion.appendChild(divIconoInfo);
+        divIconoInfo.appendChild(pIcono);
+        divIconoInfo.appendChild(divInfo);
+        divInfo.appendChild(pTitulo);
+        divInfo.appendChild(pSubtitulo);
+        divCancion.appendChild(pDuracion);
+    }
 }
