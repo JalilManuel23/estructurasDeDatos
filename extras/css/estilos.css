@@ -84,11 +84,6 @@ header {
     background: #00a3de;
 }
 
-@media (max-width: 700px) {
-    .productos {
-        flex-direction: column;
-    }
-}
 
 .contenido-chat {
     display: flex;
@@ -104,10 +99,87 @@ header {
 .contenido-chat p{
     padding: 10px;
 }
+
 .estado {
     color: #0c5772
 }
 
 .lugar {
     font-weight: bold;
+}
+
+.contenido-conversacion {
+    width: 80%;
+    height: 60%;
+    border-radius: 10px;
+    border: 1px solid #a1a6a8;
+    background: rgb(241, 239, 239);
+    margin-bottom: 50px;
+}
+
+.mensaje, .respuesta{
+    padding: 20px;
+    color: white;
+    width: auto;
+    max-width: 95%;
+    border-radius: 80px;
+    font-size: 1.5vmin;
+}
+
+.fila-derecha{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.fila-izquierda{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.fila-derecha .mensaje {
+    background: #00a3de;
+}
+
+.fila-izquierda .mensaje, .respuesta {
+    background: #04668a;
+}
+
+.respuestas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.respuesta {
+    display: flex;
+    justify-content: center;
+    width: 210px;
+}
+
+.respuesta:hover {
+    color: white;
+    background: #00a3de;
+    transform: scale(1.02);
+    text-decoration: none;
+}
+
+.btns{
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 700px) {
+    .productos {
+        flex-direction: column;
+    }
+
+    .mensaje, .respuesta{
+        font-size: 3vmin;
+    }
 }

@@ -43,7 +43,7 @@ class Filas{
 const fila = new Filas();
 
 function main() {
-    let turno = Math.floor(Math.random() * (8 - 5)) + 5;
+    let turno = Math.floor(Math.random() * (5 - 2)) + 2;
     let tiempo = turno * 2;
 
 
@@ -68,7 +68,7 @@ function main() {
     padre.appendChild(pLugar);
     padre.appendChild(pTiempo);
     contarTiempo(tiempo);
-    padre.appendChild(aBoton);
+    // padre.appendChild(aBoton);
 
 }
 
@@ -113,6 +113,55 @@ function abrirVentana (){
     boton.setAttribute("onclick", "window.open('conversacion.html', 'newwindow', 'width=800,height=4000');");
 
     const padre = document.querySelector("#contenido-chat");
-    padre.removeChild(document.querySelector(".botones"));
+    // padre.removeChild(document.querySelector(".botones"));
     padre.appendChild(boton);
+}
+
+function respuesta(opcion) {
+
+    var respuesta1 = "";
+    var respuesta2 = "";
+
+    switch(opcion) {
+        case 1: {
+            respuesta1 = "Horarios y sucursales";
+            respuesta2 = "Visita este link para que tengas más información sobre las sucursales: https://www.google.com/maps/search/innovasport+durango/@24.0424447,-104.6617881,12z/data=!3m1!4b1";
+        }break;
+        case 2: {
+            respuesta1 = "Estado de Pedido";
+            respuesta2 = "Visita este link para que tengas más información sobre las tu pedido: https://www.dhl.com/mx-es/home/rastreo.html";
+        }break;
+        case 3: {
+            respuesta1 = "Quejas y Sugerencias";
+            respuesta2 = "Comunicate al número 554777222 y realiza tu queja o sugerencia.";
+        }break;
+    }
+
+    const divMensaje1 = document.createElement("div");
+    const divMensaje2 = document.createElement("div");
+    const boton = document.createElement("a");
+    const p1 = document.createElement("p");
+    const p2 = document.createElement("p");
+    
+    divMensaje1.className = "fila-izquierda";
+    divMensaje2.className = "fila-derecha";
+    p1.className = "mensaje";
+    p2.className = "mensaje";
+    boton.className = "botones";
+ 
+
+    p1.textContent = respuesta1;
+    p2.textContent = respuesta2;
+    boton.textContent = "Salir";
+
+    boton.setAttribute("href", "javascript:cerrar()");
+
+    const padre = document.querySelector("#contenido-conversacion");
+    padre.appendChild(divMensaje1);
+    padre.appendChild(divMensaje2);
+    divMensaje1.appendChild(p1);
+    divMensaje2.appendChild(p2);
+
+    const pd = document.querySelector("#btn");
+    pd.appendChild(boton);
 }
