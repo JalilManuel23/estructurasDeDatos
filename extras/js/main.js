@@ -164,4 +164,13 @@ function respuesta(opcion) {
 
     const pd = document.querySelector("#btn");
     pd.appendChild(boton);
+
+    const res = document.querySelector(".respuestas");
+    const r1 = document.querySelector("#r1");
+    const r2 = document.querySelector("#r2");
+    const r3 = document.querySelector("#r3");
+
+    res.removeChild(r1);
+    res.removeChild(r2);
+    res.removeChild(r3);
 }
