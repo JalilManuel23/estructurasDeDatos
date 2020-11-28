@@ -28,13 +28,6 @@ header {
     margin: auto;
 }
 
-.barra-superior {
-    height: 8vh;
-    background: rgb(236, 236, 236);
-    color: rgb(73, 72, 72);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
 .contenedor-barra {
     display: flex;
     justify-content: space-between;
@@ -98,9 +91,23 @@ header {
 }
 
 .contenido-chat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contenido-chat h1 {
     font-size: 3.5vmin;
     font-weight: bold;
 }    
+
+.contenido-chat p{
+    padding: 10px;
+}
+.estado {
+    color: #0c5772
+}
+
+.lugar {
+    font-weight: bold;
+}

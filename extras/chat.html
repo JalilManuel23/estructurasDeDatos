@@ -21,9 +21,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </head>
 
-<body>
+<body onload="main()">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"><img src="img/logo.png" alt="Logo" class="logo" width="80px"></a>
@@ -50,10 +51,12 @@
                 </form>
             </div>
         </nav>
-        <div class="contenido-chat contenedor">
+        <div id="contenido-chat" class="contenido-chat contenedor">
             <h1>¡Bienvenido al Chat en línea de Innovasport!</h1>
+            <p class="estado">Estado: Esperando</p>
+            <img src="img/esperar.gif" alt="Gif">
+            <p>Espere por favor mientras uno de nuestros agentes lo atiende.</p>
         </div>
     </header>
 </body>
-
 </html>
