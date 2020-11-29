@@ -7,10 +7,12 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/estilos.css">
     <script src="js/main.js"></script>
+    <script src="js/ventanas.js"></script>
 </head>
 
 <body onload="main()">
@@ -55,6 +57,7 @@
                         <p class="subtitulo-cancion">Nombre del artista</p>
                     </div>
                 </div>
+
                 <div class="controles">
                     <div class="botones">
                         <p class="icon-random"></p>
@@ -176,7 +179,7 @@
                     <p class="opcion">Podcasts</p>
                 </div>
             </div>
-            <div class="contenedor-playlist">
+            <div id="contenedor-ver-playlist" class="contenedor-playlist">
                 <div class="encabezado-playlist">
                     <img src="img/playlist-icono.png" alt="Playlist">
                     <div id="nombre-playlist" class="nombre-playlist">
@@ -185,56 +188,8 @@
                     </div>
                 </div>
                 <a href="#" class="boton">REPRODUCIR</a>
-                <div class="cancion">
-                    <div class="icono-info">
-                        <a href="#" class="subtitulo-cancion icon-trash"></a>
-                        <div class="info-cancion">
-                            <p class="titulo-cancion">Canción 1</p>
-                            <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
-                        </div>
-                    </div>
-                    <p class="duracion">3:46</p>
-                </div>
-                <div class="cancion">
-                    <div class="icono-info">
-                        <a href="#" class="subtitulo-cancion icon-trash"></a>
-                        <div class="info-cancion">
-                            <p class="titulo-cancion">Canción 1</p>
-                            <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
-                        </div>
-                    </div>
-                    <p class="duracion">3:46</p>
-                </div>
-                <div class="cancion">
-                    <div class="icono-info">
-                        <a href="#" class="subtitulo-cancion icon-trash"></a>
-                        <div class="info-cancion">
-                            <p class="titulo-cancion">Canción 1</p>
-                            <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
-                        </div>
-                    </div>
-                    <p class="duracion">3:46</p>
-                </div>
-                <div class="cancion">
-                    <div class="icono-info">
-                        <a href="#" class="subtitulo-cancion icon-trash"></a>
-                        <div class="info-cancion">
-                            <p class="titulo-cancion">Canción 1</p>
-                            <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
-                        </div>
-                    </div>
-                    <p class="duracion">3:46</p>
-                </div>
-                <div class="cancion">
-                    <div class="icono-info">
-                        <a href="#" class="subtitulo-cancion icon-trash"></a>
-                        <div class="info-cancion">
-                            <p class="titulo-cancion">Canción 1</p>
-                            <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
-                        </div>
-                    </div>
-                    <p class="duracion">3:46</p>
-                </div>
+                
+
             </div>
         </div>
 

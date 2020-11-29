@@ -139,6 +139,19 @@ class ListaDoble {
         }
         this.size--;
     }
+
+    buscar(indice) {
+        let temporal = this.inicio;
+        let con = 0;
+
+        while(temporal) {
+            if(indice == con) {
+                return temporal.dato;
+            } 
+            temporal = temporal.siguiente;
+            con++;
+        }
+    }
 }
 
 //Arreglo que guardara las listas, sus nombres y descripción
@@ -245,6 +258,8 @@ function mostrarPlaylistCompleta(indice) {
 
     divNombrePlaylist.appendChild(nombre);
     divNombrePlaylist.appendChild(descripcion);
+
+    mostrarCancionesPlaylist(indice);
 }
 
 // Limpia la parte de ver playlist
@@ -293,8 +308,92 @@ function mostrarCanciones() {
         pSubtitulo.className = "subtitulo-cancion";
         pDuracion.className = "duracion";
 
+        pIcono.setAttribute('onclick', 'seleccionarPlaylist(' + i + ')');
+
         pTitulo.textContent = canciones[i];
         pSubtitulo.textContent = artistasAlbum[i];
+        pDuracion.textContent = "3:46";
+
+        divContenedorCanciones.appendChild(divCancion);
+        divCancion.appendChild(divIconoInfo);
+        divIconoInfo.appendChild(pIcono);
+        divIconoInfo.appendChild(divInfo);
+        divInfo.appendChild(pTitulo);
+        divInfo.appendChild(pSubtitulo);
+        divCancion.appendChild(pDuracion);
+    }
+}
+
+function toObject(arr) {
+    var rv = {};
+    for (var i = 0; i < arr.length; ++i)
+      rv[i] = arr[i];
+    return rv;
+}
+
+// Ventana Para seleccionar la Playlist y agregarla
+function seleccionarPlaylist(i) {
+    (async () => {
+
+        const { value: lista } = await Swal.fire({
+          title: 'Selecciona una Playlist',
+          input: 'select',
+          inputOptions: toObject(nombres),
+          inputPlaceholder: 'Selecciona una Playlist',
+          showCancelButton: true,
+        })
+        
+        if (lista) {
+          Swal.fire(`Canción Agregada`);
+          listas[lista].agregarInicio(canciones[i]);
+        }
+    })()
+}
+
+// Mostrar canciones en las playlists
+{/* <div class="cancion">
+<div class="icono-info">
+    <a href="#" class="subtitulo-cancion icon-trash"></a>
+    <div class="info-cancion">
+        <p class="titulo-cancion">Canción 1</p>
+        <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
+    </div>
+</div>
+<p class="duracion">3:46</p>
+</div> */}
+function mostrarCancionesPlaylist(indice) {
+    for(let i = 0; i < listas[indice].size; i ++) {
+        const divContenedorCanciones = document.querySelector("#contenedor-ver-playlist");
+        const divCancion = document.createElement("div");
+        const divIconoInfo = document.createElement("div");
+        const pIcono = document.createElement("p");
+        const divInfo = document.createElement("div");
+        const pTitulo = document.createElement("p");
+        const pSubtitulo = document.createElement("p");
+        const pDuracion = document.createElement("p");
+        
+        divCancion.className = "cancion";
+        divIconoInfo.className = "icono-info";
+        pIcono.className = "subtitulo-cancion";
+        pIcono.className = "icon-list-add";
+        divInfo.className = "info-cancion";
+        pTitulo.className = "titulo-cancion";
+        pSubtitulo.className = "subtitulo-cancion";
+        pDuracion.className = "duracion";
+
+        pTitulo.textContent = listas[indice].buscar(i);
+
+        let con = 0;
+
+        let encontrado = false;
+        while(encontrado == false) {
+            if(canciones[con] == listas[indice].buscar(i)) {
+                break;
+            }
+            con++;
+        }
+
+        pSubtitulo.textContent = artistasAlbum[con];
         pDuracion.textContent = "3:46";
 
         divContenedorCanciones.appendChild(divCancion);
