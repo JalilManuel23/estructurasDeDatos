@@ -120,6 +120,7 @@ console.log(partidos.obtenerTamano());
 function mostrarPartidos() {
     for (let i = partidos.inicio; i < partidos.obtenerTamano(); i++) {
         $("#partidos-registrados2").html("");
+        $("#partidos-registrados3").html("");
     }
 
     for (let i = partidos.inicio; i < partidos.obtenerTamano(); i++) {
@@ -133,7 +134,47 @@ function mostrarPartidos() {
         divContenedor.appendChild(registro);
     }
 
+    for (let i = partidos.inicio; i < partidos.obtenerTamano(); i++) {
+        const divContenedor = document.querySelector("#partidos-registrados3");
+
+        const p = document.createElement("p");
+        const label = document.createElement("label");
+        const btnEditar = document.createElement("input");
+        const span = document.createElement("span");
+
+        btnEditar.setAttribute("type", "radio");
+        btnEditar.setAttribute("name", "radioBotones");
+        btnEditar.setAttribute("onclick", "asignarId(" + i + ")");
+        btnEditar.setAttribute("value", i);
+
+        span.textContent = partidos.nodos[i];
+
+        divContenedor.appendChild(p);
+        p.appendChild(label);
+        label.appendChild(btnEditar);
+        label.appendChild(span);
+    }
 }
 
+function asignarId(i) {
+    document.querySelector("#partido-editar-id").value = i;
+}
+
+// Función para eliminar partidos
+function editarPartido() {
+    let indice = document.querySelector("#partido-editar-id").value;
+
+    let equipo1 = document.getElementById("equipo1-ed").value;
+    let puntaje1 = document.getElementById("puntosl-ed").value;
+    let equipo2 = document.getElementById("equipo2-ed").value;
+    let puntaje2 = document.getElementById("puntos2-ed").value;
+
+    let partido = `${equipo1} ${puntaje1} - ${puntaje2} ${equipo2}`;
+
+    partidos.nodos[indice] = partido;
+    console.log(partidos.nodos[indice]);
+
+    mostrarPartidos();
+}
 
 //Conteo de partidos registrados

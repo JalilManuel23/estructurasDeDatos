@@ -426,3 +426,21 @@ nav {
 
 
 /* Fin Estilos de Menú */
+
+/* AGREGADOS POR JALIL */
+.partidos-registrados3 {
+    width: 90%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.747);
+    z-index: 999;
+    position: absolute;
+    left: 5%;
+    margin-top: 1rem;
+}
+
+.form-editar {
+    margin: auto;
+    width: 1000px;
+    margin-top: 40vh;
+    z-index: 999;
+}

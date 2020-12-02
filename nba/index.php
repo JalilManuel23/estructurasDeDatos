@@ -165,14 +165,51 @@ $equipos = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn
         <div id="menu3" class="col s12">
             <img src="img/james.png" alt="" class="imgfondo4" data-aos="slide-right" data-aos-duration="4000">
             <img src="img/kawhi.png" alt="" class="imgfondo5" data-aos="slide-right" data-aos-duration="4000">
+                
+            <div class="partidos-registrados3" id="partidos-registrados3"></div>
+             <div class="form-editar">
+                <select class="icons" id="equipo1-ed">
+                    <option value="" disabled selected>ELIGE EL EQUIPO LOCAL</option>
+                    <?php
+                    if ($result = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn))) {
+                        if (mysqli_num_rows($result)) {
+                            while ($row = $result->fetch_assoc()) { ?>
+                                <option id="" value="<?php echo $row['nombre']; ?>" data-icon="img/equipos/<?php echo $row['img']; ?>"><?php echo $row['nombre']; ?></option>
 
-            
+                    <?php }
+                        }
+                    } ?>
+                </select>
+                <div class="pts2" id="puntos1">
+                    <h3 class="titt3">PTS LOCAL</h3>
+                    <input placeholder="" id="puntosl-ed" type="number" class="puntaje" value="0">
+                </div>
+
+                <div class="pts2" id="puntos2">
+                    <h3 class="titt3">PTS VISITANTE</h3>
+                    <input placeholder="" id="puntos2-ed" type="number" class="puntaje" value="0">
+                </div>
+                <select id="equipo2-ed">
+                    <option value="" disabled selected>ELIGE EL EQUIPO VISITANTE</option>
+                    <?php
+                    if ($result = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn))) {
+                        if (mysqli_num_rows($result)) {
+                            while ($row = $result->fetch_assoc()) { ?>
+                                <option id="" value="<?php echo $row['nombre']; ?>" data-icon="img/equipos/<?php echo $row['img']; ?>"><?php echo $row['nombre']; ?></option>
+                    <?php }
+                        }
+                    } ?>
+                </select>
+                <input type="text" id="partido-editar-id" style="display: none;"></input>
+                <button class="waves-effect waves-light btn-large" id="btn" onclick="editarPartido()">EDITAR</button>
+             </div>               
         </div>
 
         <!-- Menú de Eliminar -->
         <div id="menu4" class="col s12">
             <img src="img/steph.png" alt="" class="imgfondo6" data-aos="slide-right" data-aos-duration="4000">
             <img src="img/blake.png" alt="" class="imgfondo7" data-aos="slide-right" data-aos-duration="4000">
+               
         </div>
     </div>
 
