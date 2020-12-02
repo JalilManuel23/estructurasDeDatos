@@ -1,0 +1,428 @@
+/* Estilos Generales */
+
+body {
+    background-color: rgb(31, 30, 30);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(61, 13, 13);
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #8f3131;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(134, 17, 17);
+}
+
+.input-field label {
+    color: #000 !important;
+}
+
+.input-field input[type=text]:focus+label,
+.input-field input[type=number]:focus+label {
+    color: #000 !important;
+}
+
+.input-field input[type=text]:focus,
+.input-field input[type=number]:focus {
+    border-bottom: 1px solid rgb(31, 30, 30) !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.input-field input[type=text]:active,
+.input-field input[type=number]:active {
+    border-bottom: 1px solid rgb(31, 30, 30) !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.input-field input[type=text].valid,
+.input-field input[type=number].valid {
+    border-bottom: 1px solid rgb(31, 30, 30) !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.input-field input[type=text].invalid,
+.input-field input[type=number].invalid {
+    border-bottom: 1px solid rgb(31, 30, 30) !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.input-field .prefix.active {
+    color: #000 !important;
+}
+
+.imgfondo {
+    position: absolute;
+    width: 32%;
+    top: 7rem;
+    z-index: 90;
+}
+
+.imgfondo2 {
+    position: absolute;
+    left: -6rem;
+    top: 10rem;
+    width: 45%;
+    z-index: 999;
+}
+
+.imgfondo3 {
+    position: absolute;
+    top: 8rem;
+    right: 0rem;
+    bottom: 0;
+    width: 40%;
+    z-index: 90;
+}
+
+.imgfondo4 {
+    position: absolute;
+    width: 25%;
+    top: 8rem;
+    z-index: 90;
+}
+
+.imgfondo5 {
+    position: absolute;
+    width: 28%;
+    right: 1rem;
+    top: 8rem;
+    z-index: 90;
+}
+
+.imgfondo6 {
+    position: absolute;
+    width: 35%;
+    top: 8rem;
+    z-index: 90;
+}
+
+.imgfondo7 {
+    position: absolute;
+    width: 35%;
+    right: 1rem;
+    top: 8rem;
+    z-index: 90;
+}
+
+
+/* Fin de Estilos Generales */
+
+
+/* Estilos de Encabezado */
+
+nav {
+    background-color: #701711;
+}
+
+.centro {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgheader {
+    width: 1.9rem;
+    display: flex;
+    margin-right: 1rem;
+}
+
+.txtheader {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5rem;
+}
+
+.tabs {
+    width: 100% !important;
+    background-color: #490e0a;
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+}
+
+.tabs a {
+    font-family: 'Fjalla One', sans-serif;
+    color: white !important;
+}
+
+
+/* Fin Estilos de Encabezado */
+
+
+/* Estilos de Menú */
+
+.cont-partidos {
+    width: 90%;
+    height: 50rem;
+    background-color: rgba(255, 255, 255, 0.747);
+    z-index: 999;
+    position: absolute;
+    left: 5%;
+    margin-top: 1rem;
+}
+
+.partidos-registrados {
+    height: 24rem;
+    padding: 0;
+    overflow-y: scroll;
+    border-left: 1px solid rgb(153, 153, 153);
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.partidos-registrados p {
+    margin: 0;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #490e0a;
+    font-weight: bolder;
+}
+
+.localvis {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+}
+
+.cont-partidos2 {
+    padding: 1rem;
+    padding-bottom: 0;
+    width: 80%;
+}
+
+.partidosr {
+    display: flex;
+}
+
+.cont-partidos3 {
+    width: 90%;
+    height: 45rem;
+    background-color: rgba(255, 255, 255, 0.747);
+    z-index: 999;
+    position: absolute;
+    left: 5%;
+    margin-top: 1rem;
+}
+
+.cont2 {
+    display: flex;
+}
+
+.partido {
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+.side-tabla {
+    width: 30rem;
+    height: 50rem;
+    overflow-y: scroll;
+    padding: 0rem;
+}
+
+.titulo-sec {
+    font-family: 'Fjalla One', sans-serif;
+    color: #701711;
+    font-size: 2.5rem;
+    margin-top: 0;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.tit {
+    font-family: 'Fjalla One', sans-serif;
+    color: #701711;
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+.contit {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-left: 1rem;
+}
+
+.tit2 {
+    font-family: 'Fjalla One', sans-serif;
+    background-color: #701711;
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+}
+
+.subtabla {
+    text-align: center;
+    color: #701711;
+}
+
+.num {
+    text-align: center;
+}
+
+.equipologo {
+    margin-left: 1rem;
+    padding-top: 0.3rem;
+}
+
+.posiciones {
+    font-size: 0.8rem;
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+}
+
+.juegos {
+    width: 1rem;
+}
+
+.cont-centro {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 3rem;
+}
+
+.contenedor {
+    display: flex;
+}
+
+.local,
+.visitante {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titt2 {
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 2rem;
+}
+
+.titt3 {
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1rem;
+}
+
+.puntos {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.npts {
+    margin: 0;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+}
+
+.pts2 {
+    width: 30%;
+}
+
+.cont3 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.input-field.col.s6 {
+    width: 20%;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+#puntos1 {
+    margin-left: 1rem;
+}
+
+#puntos2 {
+    margin-right: 0.2rem;
+}
+
+#puntosl,
+#puntosv {
+    background-color: rgb(31, 30, 30);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 2rem;
+    color: white;
+    height: 5rem;
+    text-align: center;
+}
+
+#uno {
+    margin-right: 0.5rem;
+}
+
+.select1 {
+    width: 97%;
+    padding-left: 0;
+    margin: 0;
+}
+
+.select-dropdown.dropdown-trigger {
+    background-color: rgb(31, 30, 30) !important;
+    color: white;
+    font-family: 'Fjalla One', sans-serif;
+    padding: 1rem !important;
+    font-size: 2rem !important;
+}
+
+.dropdown-content.select-dropdown {
+    background-color: rgb(31, 30, 30);
+    font-family: 'Fjalla One', sans-serif;
+    color: white !important;
+}
+
+.dropdown-content.select-dropdown span {
+    color: white !important;
+    font-size: 1.3rem !important;
+}
+
+.cont-tit {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.txtcentro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 3rem;
+}
+
+#btn {
+    margin-top: 2rem;
+    background-color: #490e0a;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 2rem;
+    width: 30%;
+}
+
+.line {
+    width: 100%;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+
+/* Fin Estilos de Menú */

@@ -321,6 +321,7 @@ function mostrarCanciones() {
         divInfo.appendChild(pTitulo);
         divInfo.appendChild(pSubtitulo);
         divCancion.appendChild(pDuracion);
+        console.log(listas);
     }
 }
 
@@ -363,7 +364,7 @@ function seleccionarPlaylist(i) {
 </div> */}
 function mostrarCancionesPlaylist(indice) {
     for(let i = 0; i < listas[indice].size; i ++) {
-        const divContenedorCanciones = document.querySelector("#contenedor-ver-playlist");
+        const divContenedorCanciones = document.querySelector("#canciones");
         const divCancion = document.createElement("div");
         const divIconoInfo = document.createElement("div");
         const pIcono = document.createElement("p");

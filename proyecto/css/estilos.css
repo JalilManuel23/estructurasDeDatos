@@ -397,4 +397,9 @@ form {
 .contenedor-playlist .cancion {
     width: 100%;
 }
+
+#canciones {
+    overflow-y: scroll;
+    width: 100%;
+}
 /* FIN DE ESTILOS DE VER PLAYLISTS */
