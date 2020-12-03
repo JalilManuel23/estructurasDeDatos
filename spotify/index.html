@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clon Spotify</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/ventanas.js"></script>
 </head>
@@ -36,8 +38,8 @@
             </div>
             <div class="playlists">
                 <div id="contenedor-playlist" class="contenedor-playlist contenedor">
-                    <h2 class="titulo">Playlists</h2>  
-                    <a href="#agregar-playlist" class="boton">CREAR PLAYLIST</a>        
+                    <h2 class="titulo">Playlists</h2>
+                    <a href="#agregar-playlist" class="boton" id="btn">CREAR PLAYLIST</a>
                     <!-- mostrarLetrero()  -->
                     <!-- mostrarPlaylist(nombreLista)  -->
                 </div>
@@ -112,7 +114,7 @@
                     <form action="#">
                         <div class="elemento-form">
                             <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" placeholder="Nombre de la playlist">
+                            <input type="text" placeholder="Nombre de la playlist" id="nombre">
                         </div>
                         <div class="elemento-form">
                             <label for="descripcion">Descripción</label>
@@ -187,11 +189,12 @@
                         <!-- mostrarPlayListCompleta(indice); -->
                     </div>
                 </div>
-                <a href="#" class="boton">REPRODUCIR</a>
-                <div class="canciones" id="canciones">
-
+                <div class="reproducir-editar">
+                    <a href="#" onclick="limpiarVerPlaylist()" class="boton">REPRODUCIR</a>
+                    <p class="icon-pencil"></p>
                 </div>
-
+                
+                <div class="canciones" id="canciones"></div>
             </div>
         </div>
 
@@ -228,7 +231,7 @@
             </div>
         </div>
     </div>
-    <!-- INICIO DE PÁGINA DE  VER PLAYLIST -->
+    <!-- FIN DE PÁGINA DE  VER PLAYLIST -->
 </body>
 
 </html>

@@ -10,6 +10,7 @@ class Nodo {
 
 //Clase lista doble
 class ListaDoble {
+    //Método constructor de clase lista doble
     constructor() {
         this.inicio = null;
         this.final = null;
@@ -144,10 +145,10 @@ class ListaDoble {
         let temporal = this.inicio;
         let con = 0;
 
-        while(temporal) {
-            if(indice == con) {
+        while (temporal) {
+            if (indice == con) {
                 return temporal.dato;
-            } 
+            }
             temporal = temporal.siguiente;
             con++;
         }
@@ -177,6 +178,12 @@ function crearPlaylist() {
     descripciones.push(descripcion);
 
     mostrarPlaylist(nombre);
+    limpiarCamposPlaylist();
+}
+
+function limpiarCamposPlaylist() {
+    document.getElementById('nombre').value = '';
+    document.getElementById('descripcion').value = '';
 }
 
 // Función para mostrar letrero de que no hay listas
@@ -184,15 +191,15 @@ function crearPlaylist() {
 function mostrarLetrero() {
     const contenedor = document.querySelector('#contenedor-playlist');
 
-    if(listas.length == 0) {
+    if (listas.length == 0) {
         const letrero = document.createElement("p");
-        letrero.innerHTML = "Opss, no haz creado ninguna Playlist";
+        letrero.innerHTML = "Oops! no has creado ningúna playlist, crea una ahora.";
         letrero.id = "letrero";
         contenedor.appendChild(letrero);
     } else {
         const letreroBorrar = document.getElementById("letrero");
 
-        if(letreroBorrar){
+        if (letreroBorrar) {
             contenedor.removeChild(letreroBorrar);
         }
     }
@@ -219,7 +226,7 @@ function mostrarPlaylist(nombreLista) {
     const imagen = document.createElement("img");
     const nombre = document.createElement("p");
     const icono = document.createElement("p");
-    
+
     divPlaylist.className = "playlist";
     divPlaylist.setAttribute('href', "#ver-playlist");
     divPlaylist.setAttribute('onclick', "mostrarPlaylistCompleta(" + contador + ")");
@@ -233,33 +240,11 @@ function mostrarPlaylist(nombreLista) {
     divImagen.appendChild(imagen);
     divImagen.appendChild(nombre);
     divPlaylist.appendChild(icono);
-    
+
     nombre.innerHTML = nombreLista;
     mostrarLetrero();
 
     contador++;
-}
-
-// Muestra la playlist en la seccion 2
-/* <h2 id="nombre">Nombre Playlist</h2>
-<p id="descripcion" class="descripcion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem aut dolorum facere, ipsum quod facilis. Nobis ut dolores fugiat enim nam recusandae esse, aut officia eveniet incidunt eius ad dolore.</p> */
-function mostrarPlaylistCompleta(indice) {
-    const divNombrePlaylist = document.querySelector("#nombre-playlist");
-
-    const nombre = document.createElement("h2");
-    const descripcion = document.createElement("p");
-
-    descripcion.className = "descripcion";
-    nombre.id = "nombre-playlistCompleta";
-    descripcion.id = "descripcion-playlistCompleta";
-
-    nombre.textContent = nombres[indice];
-    descripcion.textContent = descripciones[indice];
-
-    divNombrePlaylist.appendChild(nombre);
-    divNombrePlaylist.appendChild(descripcion);
-
-    mostrarCancionesPlaylist(indice);
 }
 
 // Limpia la parte de ver playlist
@@ -273,7 +258,7 @@ function limpiarVerPlaylist() {
 }
 
 // Arreglo para las canciones y los artistass/almbumes
-let canciones =     ["HOLIDAY"            , "THE SCOTTS"               , "Toosie Slide"        , "VIBEZ"        , "Baguettes (feat. Gunna)" , "Poco"                        , "Barquillero"             , "Los Niños"                  , "El pariente"                , "El Buho"];
+let canciones = ["HOLIDAY", "THE SCOTTS", "Toosie Slide", "VIBEZ", "Baguettes (feat. Gunna)", "Poco", "Barquillero", "Los Niños", "El pariente", "El Buho"];
 let artistasAlbum = ["Lil Nas X - HOLIDAY", "Travis Scott - THE SCOTTS", "Drake - Toosie Slide", "DaBaby - KIRK", "Smokepurpp - Lost Planet", "Reik, Christian Nodal - Poco", "Calibre 50 - Barquillero", "Grupo Codiciado - La verdad", "Grupo Recluta - El Pariente", "El Buho - Luis R Conriquez - EL Buho"];
 
 // Función para mostrar las canciónes en el header
@@ -289,7 +274,7 @@ let artistasAlbum = ["Lil Nas X - HOLIDAY", "Travis Scott - THE SCOTTS", "Drake 
     <p class="duracion">3:46</p>
 </div> */
 function mostrarCanciones() {
-    for(let i = 0; i < canciones.length; i++) {
+    for (let i = 0; i < canciones.length; i++) {
         const divContenedorCanciones = document.querySelector("#contenedor-canciones");
         const divCancion = document.createElement("div");
         const divIconoInfo = document.createElement("div");
@@ -298,7 +283,7 @@ function mostrarCanciones() {
         const pTitulo = document.createElement("p");
         const pSubtitulo = document.createElement("p");
         const pDuracion = document.createElement("p");
-        
+
         divCancion.className = "cancion";
         divIconoInfo.className = "icono-info";
         pIcono.className = "subtitulo-cancion";
@@ -321,88 +306,149 @@ function mostrarCanciones() {
         divInfo.appendChild(pTitulo);
         divInfo.appendChild(pSubtitulo);
         divCancion.appendChild(pDuracion);
-        console.log(listas);
     }
 }
 
 function toObject(arr) {
     var rv = {};
     for (var i = 0; i < arr.length; ++i)
-      rv[i] = arr[i];
+        rv[i] = arr[i];
     return rv;
 }
 
 // Ventana Para seleccionar la Playlist y agregarla
 function seleccionarPlaylist(i) {
-    (async () => {
+    (async() => {
 
         const { value: lista } = await Swal.fire({
-          title: 'Selecciona una Playlist',
-          input: 'select',
-          inputOptions: toObject(nombres),
-          inputPlaceholder: 'Selecciona una Playlist',
-          showCancelButton: true,
+            title: 'Selecciona una Playlist',
+            input: 'select',
+            inputOptions: toObject(nombres),
+            inputPlaceholder: 'Selecciona una Playlist',
+            showCancelButton: true,
+            showCloseButton: true,
+            confirmButtonText: 'Añadir',
+            cancelButtonText: 'Cancelar',
+            background: '#181818',
         })
-        
+
         if (lista) {
-          Swal.fire(`Canción Agregada`);
-          listas[lista].agregarInicio(canciones[i]);
+            Swal.fire({
+                title: 'Canción Agregada',
+                background: '#181818',
+                confirmButtonText: 'Aceptar',
+            });
+            listas[lista].agregarInicio(canciones[i]);
         }
     })()
 }
 
+// Muestra la playlist en la seccion 2
+/* <h2 id="nombre">Nombre Playlist</h2>
+<p id="descripcion" class="descripcion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem aut dolorum facere, ipsum quod facilis. Nobis ut dolores fugiat enim nam recusandae esse, aut officia eveniet incidunt eius ad dolore.</p> */
+function mostrarPlaylistCompleta(indice) {
+    const divNombrePlaylist = document.querySelector("#nombre-playlist");
+
+    const iconoEditar = document.querySelector(".icon-pencil");
+
+    const nombre = document.createElement("h2");
+    const descripcion = document.createElement("p");
+
+    descripcion.className = "descripcion";
+    nombre.id = "nombre-playlistCompleta";
+    descripcion.id = "descripcion-playlistCompleta";
+    iconoEditar.setAttribute("onclick", "editarPlaylist(" + indice + ")");
+
+    nombre.textContent = nombres[indice];
+    descripcion.textContent = descripciones[indice];
+
+    divNombrePlaylist.appendChild(nombre);
+    divNombrePlaylist.appendChild(descripcion);
+
+    mostrarCancionesPlaylist(indice);
+}
+
 // Mostrar canciones en las playlists
-{/* <div class="cancion">
-<div class="icono-info">
-    <a href="#" class="subtitulo-cancion icon-trash"></a>
-    <div class="info-cancion">
-        <p class="titulo-cancion">Canción 1</p>
-        <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
+{
+    /* <div class="cancion">
+    <div class="icono-info">
+        <a href="#" class="subtitulo-cancion icon-trash"></a>
+        <div class="info-cancion">
+            <p class="titulo-cancion">Canción 1</p>
+            <p class="subtitulo-cancion">Nombre del artista - Album de la canción</p>
+        </div>
     </div>
-</div>
-<p class="duracion">3:46</p>
-</div> */}
+    <p class="duracion">3:46</p>
+    </div> */
+}
+
 function mostrarCancionesPlaylist(indice) {
-    for(let i = 0; i < listas[indice].size; i ++) {
-        const divContenedorCanciones = document.querySelector("#canciones");
-        const divCancion = document.createElement("div");
-        const divIconoInfo = document.createElement("div");
-        const pIcono = document.createElement("p");
-        const divInfo = document.createElement("div");
-        const pTitulo = document.createElement("p");
-        const pSubtitulo = document.createElement("p");
-        const pDuracion = document.createElement("p");
-        
-        divCancion.className = "cancion";
-        divIconoInfo.className = "icono-info";
-        pIcono.className = "subtitulo-cancion";
-        pIcono.className = "icon-list-add";
-        divInfo.className = "info-cancion";
-        pTitulo.className = "titulo-cancion";
-        pSubtitulo.className = "subtitulo-cancion";
-        pDuracion.className = "duracion";
+    //divContenedorCanciones.value = '';
+    //divContenedorCanciones.removeChild(divCancion);
+    //divCancion.removeChild(divIconoInfo);
+    $("#canciones").html("");
 
-        pTitulo.textContent = listas[indice].buscar(i);
+    if(listas[indice].size > 0) {
+        for (let i = 0; i < listas[indice].size; i++) {
+            const divContenedorCanciones = document.querySelector("#canciones");
+            const divCancion = document.createElement("div");
+            const divIconoInfo = document.createElement("div");
+            const pIcono = document.createElement("p");
+            const divInfo = document.createElement("div");
+            const pTitulo = document.createElement("p");
+            const pSubtitulo = document.createElement("p");
+            const pDuracion = document.createElement("p");
 
-        let con = 0;
+            divCancion.className = "cancion";
+            divIconoInfo.className = "icono-info";
+            pIcono.className = "subtitulo-cancion";
+            pIcono.className = "icon-trash";
+            pIcono.setAttribute("onclick", "borrarCancion(" + indice + ", " + i + ")");
+            divInfo.className = "info-cancion";
+            pTitulo.className = "titulo-cancion";
+            pSubtitulo.className = "subtitulo-cancion";
+            pDuracion.className = "duracion";
 
-        let encontrado = false;
-        while(encontrado == false) {
-            if(canciones[con] == listas[indice].buscar(i)) {
-                break;
+            pTitulo.textContent = listas[indice].buscar(i);
+
+            let con = 0;
+
+            let encontrado = false;
+            while (encontrado == false) {
+                if (canciones[con] == listas[indice].buscar(i)) {
+                    break;
+                }
+                con++;
             }
-            con++;
+
+            pSubtitulo.textContent = artistasAlbum[con];
+            pDuracion.textContent = "3:46";
+
+            divContenedorCanciones.appendChild(divCancion);
+            divCancion.appendChild(divIconoInfo);
+            divIconoInfo.appendChild(pIcono);
+            divIconoInfo.appendChild(divInfo);
+            divInfo.appendChild(pTitulo);
+            divInfo.appendChild(pSubtitulo);
+            divCancion.appendChild(pDuracion);
         }
+    } else {
+        const divContenedorCanciones = document.querySelector("#canciones");
 
-        pSubtitulo.textContent = artistasAlbum[con];
-        pDuracion.textContent = "3:46";
-
-        divContenedorCanciones.appendChild(divCancion);
-        divCancion.appendChild(divIconoInfo);
-        divIconoInfo.appendChild(pIcono);
-        divIconoInfo.appendChild(divInfo);
-        divInfo.appendChild(pTitulo);
-        divInfo.appendChild(pSubtitulo);
-        divCancion.appendChild(pDuracion);
+        const mensaje = document.createElement("h3");
+        mensaje.textContent = "Playlist vacia, agrega canciones para que aparezcan aquí";
+        divContenedorCanciones.appendChild(mensaje);
     }
+}
+
+// Función para eliminar canciones
+
+function borrarCancion(lista, cancion) {
+    listas[lista].eliminarDe(cancion);
+    mostrarCancionesPlaylist(lista);
+}
+
+// Función para editar playlist
+function editarPlaylist(indice) {
+    
 }
