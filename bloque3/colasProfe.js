@@ -63,6 +63,41 @@ class Colas {
 
         return tam;
     }
+
+    buscarcola(valor)
+    {
+        let encontre=0;
+
+        this.aux_primero=this.primero;
+
+        while (this.aux_primero!=null)
+        {
+           if (valor==this.aux_primero.dato)
+              encontre++; 
+           this.aux_primero=this.aux_primero.enlace;
+        }
+
+        delete this.aux_primero;
+
+        return encontre;
+    }
+
+    imprimircola()
+    {
+        let elementoscola="";
+
+        this.aux_primero=this.primero;
+
+        while (this.aux_primero!=null)
+        {
+            elementoscola=elementoscola+this.aux_primero.dato+",";
+           this.aux_primero=this.aux_primero.enlace;
+        }
+
+        delete this.aux_primero;
+
+        return elementoscola;
+    }
 }
 
 const cola = new Colas();
