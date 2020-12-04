@@ -452,9 +452,12 @@ input {
 }
 
 .reproducir-editar {
-    width: 200px;
     padding-top: 50px;
     display: flex;
     justify-content: space-between;
+}
+
+.reproducir-editar p {
+    margin-left: 10px;
 }
 /* FIN DE ESTILOS DE VER PLAYLISTS */

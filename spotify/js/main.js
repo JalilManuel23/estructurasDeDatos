@@ -162,8 +162,10 @@ let descripciones = [];
 
 // Función que se ejecuta al cargar
 function main() {
+    mostrarPlaylists();
     mostrarCanciones();
     mostrarLetrero();
+    reproducir(0);
 }
 
 // Función para crear una lista
@@ -177,7 +179,7 @@ function crearPlaylist() {
     let descripcion = document.querySelector('#descripcion').value;
     descripciones.push(descripcion);
 
-    mostrarPlaylist(nombre);
+    mostrarPlaylists();
     limpiarCamposPlaylist();
 }
 
@@ -218,33 +220,49 @@ function mostrarLetrero() {
 */
 let contador = 0;
 
-function mostrarPlaylist(nombreLista) {
+function mostrarPlaylists() {
+    $("#contenedor-playlist").html("");
+
     const contenedor = document.querySelector('#contenedor-playlist');
+    const titulo = document.createElement("h2");
+    const btnAgregar = document.createElement("a");
 
-    const divPlaylist = document.createElement("a");
-    const divImagen = document.createElement("div");
-    const imagen = document.createElement("img");
-    const nombre = document.createElement("p");
-    const icono = document.createElement("p");
+    titulo.className = "titulo";
+    btnAgregar.className = "boton";
+    btnAgregar.setAttribute("href", "#agregar-playlist");
+    btnAgregar.id = "btn";
 
-    divPlaylist.className = "playlist";
-    divPlaylist.setAttribute('href', "#ver-playlist");
-    divPlaylist.setAttribute('onclick', "mostrarPlaylistCompleta(" + contador + ")");
-    divImagen.className = "imagen-nombre-playlist";
-    imagen.setAttribute('src', 'img/playlist-icono.png');
-    icono.className = "icono-ver";
-    icono.className = "icon-play";
+    titulo.textContent = "Playlist";
+    btnAgregar.textContent = "CREAR PLAYLIST";
+    
+    contenedor.appendChild(titulo);
+    contenedor.appendChild(btnAgregar);
 
-    contenedor.appendChild(divPlaylist);
-    divPlaylist.appendChild(divImagen);
-    divImagen.appendChild(imagen);
-    divImagen.appendChild(nombre);
-    divPlaylist.appendChild(icono);
+    for(let i = 0; i < listas.length; i++) {
+        const divPlaylist = document.createElement("a");
+        const divImagen = document.createElement("div");
+        const imagen = document.createElement("img");
+        const nombre = document.createElement("p");
+        const icono = document.createElement("p");
 
-    nombre.innerHTML = nombreLista;
-    mostrarLetrero();
+        divPlaylist.className = "playlist";
+        divPlaylist.setAttribute('href', "#ver-playlist");
+        divPlaylist.setAttribute('onclick', "mostrarPlaylistCompleta(" + i + ")");
+        divImagen.className = "imagen-nombre-playlist";
+        imagen.setAttribute('src', 'img/playlist-icono.png');
+        icono.className = "icono-ver";
+        icono.className = "icon-play";
 
-    contador++;
+        contenedor.appendChild(divPlaylist);
+        divPlaylist.appendChild(divImagen);
+        divImagen.appendChild(imagen);
+        divImagen.appendChild(nombre);
+        divPlaylist.appendChild(icono);
+
+        nombre.innerHTML = nombres[i];
+        mostrarLetrero();
+    }
+    // contador++;
 }
 
 // Limpia la parte de ver playlist
@@ -259,8 +277,8 @@ function limpiarVerPlaylist() {
 
 // Arreglo para las canciones y los artistass/almbumes
 let canciones = ["HOLIDAY", "THE SCOTTS", "Toosie Slide", "VIBEZ", "Baguettes (feat. Gunna)", "Poco", "Barquillero", "Los Niños", "El pariente", "El Buho"];
-let artistasAlbum = ["Lil Nas X - HOLIDAY", "Travis Scott - THE SCOTTS", "Drake - Toosie Slide", "DaBaby - KIRK", "Smokepurpp - Lost Planet", "Reik, Christian Nodal - Poco", "Calibre 50 - Barquillero", "Grupo Codiciado - La verdad", "Grupo Recluta - El Pariente", "El Buho - Luis R Conriquez - EL Buho"];
-
+let artistasAlbum = ["Lil Nas X - HOLIDAY", "Travis Scott - THE SCOTTS", "Drake - Toosie Slide", "DaBaby - KIRK", "Smokepurpp - Lost Planet", "Reik, Christian Nodal - Poco", "Calibre 50 - Barquillero", "Grupo Codiciado - La verdad", "Grupo Recluta - El Pariente", "El Buho - Luis R Conriquez - El Buho"];
+let imagenes = ["holiday.png", "scotts.png", "toosie.jpg", "vibez.jpg", "baguettes.jpg", "poco.jpg", "barquillero.jpg", "ninos.jpg", "pariente.jpg", "buho.jpg"];
 // Función para mostrar las canciónes en el header
 /* 
 <div class="cancion">
@@ -293,6 +311,7 @@ function mostrarCanciones() {
         pSubtitulo.className = "subtitulo-cancion";
         pDuracion.className = "duracion";
 
+        divCancion.setAttribute("onclick", "reproducir(" + i + ")");
         pIcono.setAttribute('onclick', 'seleccionarPlaylist(' + i + ')');
 
         pTitulo.textContent = canciones[i];
@@ -450,5 +469,48 @@ function borrarCancion(lista, cancion) {
 
 // Función para editar playlist
 function editarPlaylist(indice) {
+    Swal.fire({
+        title: "Ingresa el nuevo nombre de la Playlist",
+        input: "text",
+        showCancelButton: true,
+        confirmButtonText: "Guardar",
+    }).then(resultado => {
+        if (resultado.value) {
+            let nombre = resultado.value;
+            nombres[indice] = nombre;
+            mostrarPlaylists();
+            limpiarVerPlaylist();
+            mostrarPlaylistCompleta(indice);
+        }
+    });
+}
+
+// Función para mostrar los datos en la barra de reproducción
+function reproducir(indice) {
+    const divRepImg = document.querySelectorAll(".reproductor-img-titulo");
+    $(divRepImg).html("");
     
+    for(let i = 0; i < 3; i++) {
+        const img = document.createElement("img");
+        console.log(imagenes[i])
+        img.className = "img-r";
+        img.setAttribute("src", "img/canciones/" + imagenes[indice]);
+        
+        divRepImg[i].appendChild(img);
+
+        const divInfo = document.createElement("div");
+        const titulo = document.createElement("p");
+        const subtitulo = document.createElement("p");
+
+        divInfo.className = "info-cancion info-r";
+        titulo.className = "titulo-cancion titulo-r";
+        subtitulo.className = "subtitulo-cancion subtitulo-r";
+
+        titulo.textContent = canciones[indice];
+        subtitulo.textContent = artistasAlbum[indice];
+
+        divRepImg[i].appendChild(divInfo);
+        divInfo.appendChild(titulo);
+        divInfo.appendChild(subtitulo);
+    }
 }
