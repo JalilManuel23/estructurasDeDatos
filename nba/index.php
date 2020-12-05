@@ -16,6 +16,7 @@ $equipos = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="css/icons.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
@@ -51,7 +52,7 @@ $equipos = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn
     <div class="row">
         <div class="col s12">
             <ul class="tabs">
-                <li class="tab col s3"><a class="active" href="#menu1">Partidos</a></li>
+                <li class="tab col s3"><a class="active" href="#menu1">Menú Principal</a></li>
                 <li class="tab col s3"><a href="#menu2">Añadir Partido</a></li>
                 <li class="tab col s3"><a href="#menu3">Editar Partido</a></li>
                 <li class="tab col s3"><a href="#menu4">Eliminar Partido</a></li>
@@ -81,6 +82,21 @@ $equipos = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn
                             </div>
                         </div>
                         <div class="line"></div>
+                        <div class="cont-abajo">
+                        <div class="partidosr2">
+                            <h3 class="tit3">BUSCA UN PARTIDO: </h3>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">sports_basketball</i>
+                                <input id="buscar" type="text" class="validate">
+                                <label for="buscar">Ingresa el Número de Partido a buscar</label>
+                            </div>
+                            <button class="waves-effect waves-light btn" id="btn3" onclick="buscarPartido()"><i class="material-icons right">search</i>Buscar</button>
+                        </div>
+                        <div class="partidosr3">
+                            <h3 class="tit3">NOTICIAS</h3>
+                            <img src="img/noticia.jpg" class="noticia" alt="">
+                        </div>
+                        </div>
                     </div>
                 </div>
 
@@ -110,14 +126,12 @@ $equipos = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn
                                     if ($result = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn))) {
                                         if (mysqli_num_rows($result)) {
                                             while ($row = $result->fetch_assoc()) { ?>
-                                                <option id="" value="<?php echo $row['nombre']; ?>" data-icon="img/equipos/<?php echo $row['img']; ?>"><?php echo $row['nombre']; ?></option>
+                                                <option value="<?php echo $row['nombre']; ?>" data-icon="img/equipos/<?php echo $row['img']; ?>"><?php echo $row['nombre']; ?></option>
 
                                     <?php }
                                         }
                                     } ?>
                                 </select>
-                                <pre><?php print_r($row['nombre']); ?></pre>
-
                             </div>
                         </div>
                         <div class="puntos">
@@ -165,64 +179,112 @@ $equipos = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn
         <div id="menu3" class="col s12">
             <img src="img/james.png" alt="" class="imgfondo4" data-aos="slide-right" data-aos-duration="4000">
             <img src="img/kawhi.png" alt="" class="imgfondo5" data-aos="slide-right" data-aos-duration="4000">
-                
-            <div class="partidos-registrados3" id="partidos-registrados3"></div>
-             <div class="form-editar">
-                <select class="icons" id="equipo1-ed">
-                    <option value="" disabled selected>ELIGE EL EQUIPO LOCAL</option>
-                    <?php
-                    if ($result = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn))) {
-                        if (mysqli_num_rows($result)) {
-                            while ($row = $result->fetch_assoc()) { ?>
-                                <option id="" value="<?php echo $row['nombre']; ?>" data-icon="img/equipos/<?php echo $row['img']; ?>"><?php echo $row['nombre']; ?></option>
 
-                    <?php }
-                        }
-                    } ?>
-                </select>
-                <div class="pts2" id="puntos1">
-                    <h3 class="titt3">PTS LOCAL</h3>
-                    <input placeholder="" id="puntosl-ed" type="number" class="puntaje" value="0">
+
+            <div class="cont-partidoseditar" data-aos="fade-up" data-aos-duration="6000">
+
+                <div class="cont-tit">
+                    <img src="img/titfond2.png" alt="" style="width:100%;">
+                    <div class="txtcentro">EDITAR UN PARTIDO</div>
                 </div>
 
-                <div class="pts2" id="puntos2">
-                    <h3 class="titt3">PTS VISITANTE</h3>
-                    <input placeholder="" id="puntos2-ed" type="number" class="puntaje" value="0">
+                <h3 class="titulo-sec2">ELIGE UN PARTIDO PARA EDITAR</h3>
+
+                <div class="partidos-registrados3" id="partidos-registrados3"></div>
+
+                <h3 class="titulo-sec3">INGRESA LOS CAMBIOS</h3>
+
+                <div class="cont-centro">
+                    <div class="contenedor">
+                        <div class="local">
+                            <h3 class="titt2">EQUIPO LOCAL</h3>
+                            <div class="select1" id="uno">
+                                <select class="icons" id="equipo1-ed">
+                                    <option value="" disabled selected>ELIGE EL EQUIPO LOCAL</option>
+                                    <?php
+                                    if ($result = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn))) {
+                                        if (mysqli_num_rows($result)) {
+                                            while ($row = $result->fetch_assoc()) { ?>
+                                                <option id="" value="<?php echo $row['nombre']; ?>" data-icon="img/equipos/<?php echo $row['img']; ?>"><?php echo $row['nombre']; ?></option>
+
+                                    <?php }
+                                        }
+                                    } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="puntos">
+                            <div class="cont3">
+                                <div class="pts2" id="puntos1">
+                                    <h3 class="titt3">PTS LOCAL</h3>
+                                    <input placeholder="" id="puntosl-ed" type="number" class="puntaje" value="0">
+                                </div>
+
+                                <div class="pts2" id="puntos2">
+                                    <h3 class="titt3">PTS VISITANTE</h3>
+                                    <input placeholder="" id="puntos2-ed" type="number" class="puntaje" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visitante">
+
+                            <h3 class="titt2">EQUIPO VISITANTE</h3>
+                            <div class="select1">
+                                <select class="icons" id="equipo2-ed">
+                                    <option value="" disabled selected>ELIGE EL EQUIPO VISITANTE</option>
+                                    <?php
+                                    if ($result = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn))) {
+                                        if (mysqli_num_rows($result)) {
+                                            while ($row = $result->fetch_assoc()) { ?>
+                                                <option id="" value="<?php echo $row['nombre']; ?>" data-icon="img/equipos/<?php echo $row['img']; ?>"><?php echo $row['nombre']; ?></option>
+                                    <?php }
+                                        }
+                                    } ?>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <select id="equipo2-ed">
-                    <option value="" disabled selected>ELIGE EL EQUIPO VISITANTE</option>
-                    <?php
-                    if ($result = mysqli_query($conn, "SELECT * FROM equipo") or die(mysqli_error($conn))) {
-                        if (mysqli_num_rows($result)) {
-                            while ($row = $result->fetch_assoc()) { ?>
-                                <option id="" value="<?php echo $row['nombre']; ?>" data-icon="img/equipos/<?php echo $row['img']; ?>"><?php echo $row['nombre']; ?></option>
-                    <?php }
-                        }
-                    } ?>
-                </select>
-                <input type="text" id="partido-editar-id" style="display: none;"></input>
-                <button class="waves-effect waves-light btn-large" id="btn" onclick="editarPartido()">EDITAR</button>
-             </div>               
+
+                <div class="center-align">
+                    <input type="text" id="partido-editar-id" style="display: none;"></input>
+                    <button class="waves-effect waves-light btn-large" id="btn" onclick="editarPartido()">EDITAR</button>
+                </div>
+            </div>
+
         </div>
 
         <!-- Menú de Eliminar -->
         <div id="menu4" class="col s12">
             <img src="img/steph.png" alt="" class="imgfondo6" data-aos="slide-right" data-aos-duration="4000">
             <img src="img/blake.png" alt="" class="imgfondo7" data-aos="slide-right" data-aos-duration="4000">
-               
+
+            <div class="cont-partidoseliminar" data-aos="fade-up" data-aos-duration="6000">
+
+                <div class="cont-tit">
+                    <img src="img/titfond3.png" alt="" style="width:100%;">
+                    <div class="txtcentro">ELIMINAR UN PARTIDO</div>
+                </div>
+
+                <div class="center-align" id="opc">
+                    <button class="waves-effect waves-light btn-large" id="btn2" onclick="eliminarPrimero()">ELIMINAR EL PRIMER PARTIDO REGISTRADO</button>
+                </div>
+
+
+                <div class="partidos-registrados4" id="partidos-registrados4"></div>
+            </div>
         </div>
     </div>
 
     <!-- Fin de Menú -->
 
-    <!-- Footer -->
-
-    <!-- Fin de Footer -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         //Inicialización de animaciones
         AOS.init();

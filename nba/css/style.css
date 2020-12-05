@@ -26,7 +26,7 @@ body {
 
 .input-field input[type=text]:focus+label,
 .input-field input[type=number]:focus+label {
-    color: #000 !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 .input-field input[type=text]:focus,
@@ -54,7 +54,7 @@ body {
 }
 
 .input-field .prefix.active {
-    color: #000 !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 .imgfondo {
@@ -167,6 +167,41 @@ nav {
     margin-top: 1rem;
 }
 
+.cont-partidoseditar {
+    width: 90%;
+    height: 60rem;
+    background-color: rgba(255, 255, 255, 0.747);
+    z-index: 999;
+    position: absolute;
+    left: 5%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cont-partidoseliminar {
+    width: 90%;
+    height: 50rem;
+    background-color: rgba(255, 255, 255, 0.747);
+    z-index: 999;
+    position: absolute;
+    left: 5%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#opc {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#btn2 {
+    width: 50% !important;
+    background-color: rgb(61, 13, 13);
+    font-size: 2rem;
+    font-family: 'Fjalla One', sans-serif;
+    height: 4rem;
+}
+
 .partidos-registrados {
     height: 24rem;
     padding: 0;
@@ -201,9 +236,32 @@ nav {
     display: flex;
 }
 
+.partidosr2 {
+    display: block;
+    background-color: rgba(31, 30, 30, 0.767);
+    width: 50%;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid rgb(153, 153, 153);
+}
+
+.partidosr3 {
+    display: block;
+    background-color: rgba(31, 30, 30, 0.767);
+    width: 50%;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid rgb(153, 153, 153);
+}
+
+.input-field.col.s6 {
+    margin-top: 1rem !important;
+    width: 100% !important;
+}
+
 .cont-partidos3 {
     width: 90%;
-    height: 45rem;
+    height: 36rem;
     background-color: rgba(255, 255, 255, 0.747);
     z-index: 999;
     position: absolute;
@@ -237,11 +295,65 @@ nav {
     padding-top: 1rem;
 }
 
+.titulo-sec2 {
+    font-family: 'Fjalla One', sans-serif;
+    color: #701711;
+    font-size: 2.5rem;
+    margin-top: 0;
+    padding-top: 1rem;
+    margin-left: 4rem;
+}
+
+.titulo-sec3 {
+    width: 100%;
+    background-color: rgb(31, 30, 30);
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.msj {
+    width: 100%;
+    background-color: rgb(31, 30, 30);
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    display: none;
+}
+
+.msjver {
+    width: 100%;
+    background-color: rgb(31, 30, 30);
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
 .tit {
     font-family: 'Fjalla One', sans-serif;
     color: #701711;
     font-size: 2.5rem;
     margin-top: 0;
+}
+
+.tit3 {
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    margin: 0 !important;
+    padding-bottom: 0.5rem;
 }
 
 .contit {
@@ -291,7 +403,7 @@ nav {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .contenedor {
@@ -358,6 +470,8 @@ nav {
 }
 
 #puntosl,
+#puntosl-ed,
+#puntos2-ed,
 #puntosv {
     background-color: rgb(31, 30, 30);
     font-family: 'Fjalla One', sans-serif;
@@ -402,6 +516,12 @@ nav {
     color: white;
 }
 
+.cont-tit2 {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
 .txtcentro {
     position: absolute;
     top: 50%;
@@ -419,6 +539,22 @@ nav {
     width: 30%;
 }
 
+.cont-abajo {
+    display: flex;
+}
+
+.noticia {
+    width: 100%;
+}
+
+#btn3 {
+    margin-top: 2rem;
+    background-color: #490e0a;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1rem;
+    width: 40%;
+}
+
 .line {
     width: 100%;
     border-bottom: 1px solid rgb(153, 153, 153);
@@ -427,15 +563,54 @@ nav {
 
 /* Fin Estilos de Menú */
 
+
+/* Estilos de Footer */
+
+.pie {
+    background: #ffab62;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+/* Fin Estilos de Footer */
+
+
 /* AGREGADOS POR JALIL */
+
 .partidos-registrados3 {
     width: 90%;
-    height: auto;
-    background-color: rgba(255, 255, 255, 0.747);
+    height: 10rem !important;
+    border: 1px solid rgb(153, 153, 153);
     z-index: 999;
-    position: absolute;
     left: 5%;
     margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.5rem;
+    color: black !important;
+}
+
+.partidos-registrados4 {
+    width: 90%;
+    height: 24rem !important;
+    border: 1px solid rgb(153, 153, 153);
+    z-index: 999;
+    left: 5%;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.5rem;
+    color: black !important;
 }
 
 .form-editar {
@@ -443,4 +618,18 @@ nav {
     width: 1000px;
     margin-top: 40vh;
     z-index: 999;
+}
+
+.part {
+    color: black !important;
+    font-size: 1.5rem !important;
+    width: 90%;
+}
+
+.part2 {
+    color: black !important;
+    font-size: 1.5rem !important;
+    display: block;
+    margin-top: 1.5rem;
+    width: 100%;
 }

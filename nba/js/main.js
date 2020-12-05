@@ -24,7 +24,7 @@ class Fila {
         mensaje = `Se ha eliminado el siguiente partido: \n ${this.nodos[this.inicio]}`;
         delete this.nodos[this.inicio];
         this.inicio++;
-
+        // this.tamanio--;
         return mensaje;
     }
 
@@ -90,12 +90,8 @@ function agregarPartido() {
     let partido = `${equipo1} ${puntaje1} - ${puntaje2} ${equipo2}`;
 
     partidos.push(partido);
-    console.log(partidos.imprimirFila());
-
-    let partidosReg = partidos.obtenerTamano();
-    let imprimir = document.getElementById("tit");
-    imprimir.textContent = partidosReg;
-
+    // console.log(partidos.imprimirFila());
+    ventanaAgregar(partidos.tamanio);
     mostrarPartidos();
 }
 
@@ -115,15 +111,15 @@ function aviso() {
     }
 }
 
-console.log(partidos.obtenerTamano());
+// console.log(partidos.obtenerTamano());
 
 function mostrarPartidos() {
-    for (let i = partidos.inicio; i < partidos.obtenerTamano(); i++) {
-        $("#partidos-registrados2").html("");
-        $("#partidos-registrados3").html("");
-    }
 
-    for (let i = partidos.inicio; i < partidos.obtenerTamano(); i++) {
+    $("#partidos-registrados2").html("");
+    $("#partidos-registrados3").html("");
+    $("#partidos-registrados4").html("");
+
+    for (let i = partidos.inicio; i < partidos.tamanio; i++) {
         const divContenedor = document.querySelector("#partidos-registrados2");
 
         const registro = document.createElement("h3");
@@ -134,7 +130,7 @@ function mostrarPartidos() {
         divContenedor.appendChild(registro);
     }
 
-    for (let i = partidos.inicio; i < partidos.obtenerTamano(); i++) {
+    for (let i = partidos.inicio; i < partidos.tamanio; i++) {
         const divContenedor = document.querySelector("#partidos-registrados3");
 
         const p = document.createElement("p");
@@ -154,16 +150,28 @@ function mostrarPartidos() {
         label.appendChild(btnEditar);
         label.appendChild(span);
     }
+
+    for (let i = partidos.inicio; i < partidos.tamanio; i++) {
+        const divContenedor = document.querySelector("#partidos-registrados4");
+        const registro = document.createElement("h3");
+        registro.className = "partido";
+        registro.id = "partido"
+        registro.textContent = partidos.nodos[i];
+        divContenedor.appendChild(registro);
+    }
+
+    let partidosReg = partidos.obtenerTamano();
+    let imprimir = document.getElementById("tit");
+    imprimir.textContent = partidosReg;
 }
 
 function asignarId(i) {
     document.querySelector("#partido-editar-id").value = i;
 }
 
-// Función para eliminar partidos
+// Función para editar partidos
 function editarPartido() {
     let indice = document.querySelector("#partido-editar-id").value;
-
     let equipo1 = document.getElementById("equipo1-ed").value;
     let puntaje1 = document.getElementById("puntosl-ed").value;
     let equipo2 = document.getElementById("equipo2-ed").value;
@@ -172,9 +180,52 @@ function editarPartido() {
     let partido = `${equipo1} ${puntaje1} - ${puntaje2} ${equipo2}`;
 
     partidos.nodos[indice] = partido;
-    console.log(partidos.nodos[indice]);
+
+    Swal.fire({
+        icon: 'success',
+        title: '¡Partido Editado Correctamente!',
+        text: "El nuevo valor del partido es: " + partido,
+        background: '#181818',
+    })
+    indice.value = "";
+    mostrarPartidos();
+}
+
+function eliminarPrimero() {
+    Swal.fire({
+        icon: 'info',
+        title: '¡El partido ha sido eliminado!',
+        text: partidos.pop(),
+        background: '#181818',
+    })
 
     mostrarPartidos();
 }
 
-//Conteo de partidos registrados
+function buscarPartido() {
+    const buscar = (document.querySelector("#buscar").value) - 1;
+
+    if(partidos.nodos[buscar]) {
+        Swal.fire({
+            icon: 'success',
+            title: '¡Partido Encontrado!',
+            text: "Resultado: " + partidos.nodos[buscar],
+            background: '#181818',
+        })
+    } else {
+        Swal.fire({
+            icon: 'warning',
+            title: 'El partido no fue encontrado',
+            background: '#181818',
+        })
+    }
+}
+
+function ventanaAgregar(id) {
+    Swal.fire({
+        icon: 'success',
+        title: '¡Partido Agregado!',
+        text: "Se ha añadido el partido: " + partidos.nodos[id - 1],
+        background: '#181818',
+    })
+}

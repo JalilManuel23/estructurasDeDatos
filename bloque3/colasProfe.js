@@ -13,7 +13,7 @@ class Colas {
         this.ultimo = null;
     }
 
-    encolar(valor) {
+    push(valor) {
         const nodoNuevo = new Nodos(valor, null);
 
         if(this.primero == null && this.ultimo == null) {
@@ -25,7 +25,7 @@ class Colas {
         }
     }
 
-    desencolar() {
+    pop() {
         if(this.primero != null && this.ultimo != null) {
             if(this.primero == this.ultimo) {
                 this.primero = null;
